@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>PICA SONICA</title>
+  <style>
+    body {
+      background-image: url('imagem.jpg');";
+      background-size: 100% 100%;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      font-family: sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .textinho{
+      text-align: center;
+      font-size: 30px;
+      color: white;
+      background-color: black;
+    }
+
+    #texto {
+      position: absolute;
+      font-size: 44px;
+      font-weight: bold;
+      color: red;
+      background-color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: top 0.2s, left 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="textinho">
+    <h1>CUZINHO HOJE?</h1>
+  </div>
+
+  <div id="texto">Não!</div>
+
+  <script>
+    const texto = document.getElementById('texto');
+
+    function moverTexto() {
+      const larguraJanela = window.innerWidth;
+      const alturaJanela = window.innerHeight;
+      const larguraTexto = texto.offsetWidth;
+      const alturaTexto = texto.offsetHeight;
+
+      const novaPosX = Math.random() * (larguraJanela - larguraTexto);
+      const novaPosY = Math.random() * (alturaJanela - alturaTexto);
+
+      texto.style.left = novaPosX + 'px';
+      texto.style.top = novaPosY + 'px';
+    }
+
+    texto.addEventListener('mouseenter', moverTexto);
+
+    // Posiciona inicialmente
+    moverTexto();
+  </script>
+</body>
+</html>
+
